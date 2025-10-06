@@ -273,13 +273,17 @@ const GallerySection = () => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
           if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            setTimeout(() => {
-              setVisibleImages(
-                (prev) => new Set([...prev, target.dataset.id || ""])
-              );
-            }, Number(target.dataset.delay) || 0);
+            setVisibleImages(
+              (prev) => new Set([...prev, target.dataset.id || ""])
+            );
+          } else {
+            setVisibleImages((prev) => {
+              const newSet = new Set(prev);
+              newSet.delete(target.dataset.id || "");
+              return newSet;
+            });
           }
         });
       },
@@ -297,7 +301,7 @@ const GallerySection = () => {
   return (
     <section
       id="gallery"
-      className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-gray-500 py-24 px-4 relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black py-24 px-4 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
