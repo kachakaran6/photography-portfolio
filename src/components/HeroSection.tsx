@@ -147,9 +147,8 @@ const HeroSection = () => {
     <section className="relative h-screen w-full overflow-hidden bg-gray-500">
       <canvas ref={canvasRef} className="absolute inset-0" />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-black/50" />
-
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/50 to-black/70" />
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
         <div
           className={`transition-all duration-[1500ms] ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
