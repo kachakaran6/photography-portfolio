@@ -51,6 +51,7 @@ const HeroSection = () => {
       }
 
       reset() {
+        if (!canvas) return;
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 1;
@@ -64,6 +65,7 @@ const HeroSection = () => {
         this.y += this.speedY;
 
         if (
+          !canvas ||
           this.x > canvas.width ||
           this.x < 0 ||
           this.y > canvas.height ||
