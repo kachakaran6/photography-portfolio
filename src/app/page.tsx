@@ -154,10 +154,10 @@ const HeroSection = () => {
           }`}
         >
           <div className="relative inline-block mb-8">
-            <Camera className="mx-auto h-20 w-20 text-purple-400 animate-pulse" />
+            {/* <Camera className="mx-auto h-20 w-20 text-purple-400 animate-pulse" /> */}
           </div>
           <h1 className="mb-6 text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 tracking-tight leading-tight">
-            Ankush
+            AK
             <br />
             Photography
           </h1>
