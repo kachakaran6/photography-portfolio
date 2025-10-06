@@ -521,148 +521,80 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            {[
-              {
-                Icon: Mail,
-                text: "contact@photography.studio",
-                label: "Email",
-              },
-              { Icon: Phone, text: "+1 (555) 123-4567", label: "Phone" },
-            ].map(({ Icon, text, label }, idx) => (
-              <div
-                key={idx}
-                className="group p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-purple-600/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-purple-400" />
+        <div className="flex justify-center items-center px-6">
+          <div className="grid md:grid-cols-1 gap-16 max-w-3xl w-full">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              {[
+                {
+                  Icon: Mail,
+                  text: "mail to: keyurmaniyar45@gmail.com",
+                  label: "Email",
+                  href: "mailto:keyurmaniyar45@gmail.com",
+                },
+                {
+                  Icon: Phone,
+                  text: "+91 9974730820",
+                  label: "Phone",
+                  href: "tel:+919974730820",
+                },
+              ].map(({ Icon, text, label, href }, idx) => (
+                <a
+                  key={idx}
+                  href={href}
+                  className="group block p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl border border-purple-500/20 
+               hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-purple-600/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-6 h-6 text-purple-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 mb-1">{label}</p>
+                      <span className="text-lg text-white font-medium">
+                        {text}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-1">{label}</p>
-                    <span className="text-lg text-white font-medium">
-                      {text}
-                    </span>
-                  </div>
+                </a>
+              ))}
+
+              {/* Social Links */}
+              <div className="pt-2 text-center md:text-left">
+                <h3 className="text-white text-2xl font-bold mb-6 flex items-center justify-center md:justify-start gap-3">
+                  Follow Us
+                </h3>
+                <div className="flex justify-center md:justify-start space-x-4">
+                  {[
+                    {
+                      Icon: Instagram,
+                      href: "#",
+                      color: "from-purple-600 to-pink-600",
+                    },
+                    {
+                      Icon: Facebook,
+                      href: "#",
+                      color: "from-blue-600 to-purple-600",
+                    },
+                    {
+                      Icon: Twitter,
+                      href: "#",
+                      color: "from-blue-400 to-blue-600",
+                    },
+                  ].map(({ Icon, href, color }, idx) => (
+                    <a
+                      key={idx}
+                      href={href}
+                      className={`relative w-14 h-14 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-white
+                         transform hover:scale-110 hover:rotate-6 transition-all duration-300 hover:shadow-2xl group overflow-hidden`}
+                    >
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                      <Icon className="w-6 h-6 relative z-10" />
+                    </a>
+                  ))}
                 </div>
               </div>
-            ))}
-
-            <div className="pt-8">
-              <h3 className="text-white text-2xl font-bold mb-6 flex items-center gap-3">
-                <Sparkles className="h-6 w-6 text-purple-400 animate-pulse" />
-                Follow Us
-              </h3>
-              <div className="flex space-x-4">
-                {[
-                  {
-                    Icon: Instagram,
-                    href: "#",
-                    color: "from-purple-600 to-pink-600",
-                  },
-                  {
-                    Icon: Facebook,
-                    href: "#",
-                    color: "from-blue-600 to-purple-600",
-                  },
-                  {
-                    Icon: Twitter,
-                    href: "#",
-                    color: "from-blue-400 to-blue-600",
-                  },
-                ].map(({ Icon, href, color }, idx) => (
-                  <a
-                    key={idx}
-                    href={href}
-                    className={`relative w-14 h-14 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-white transform hover:scale-110 hover:rotate-6 transition-all duration-300 hover:shadow-2xl group overflow-hidden`}
-                  >
-                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                    <Icon className="w-6 h-6 relative z-10" />
-                  </a>
-                ))}
-              </div>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="space-y-6">
-            {[
-              { name: "name", type: "text", placeholder: "Your Name", rows: 1 },
-              {
-                name: "email",
-                type: "email",
-                placeholder: "Your Email",
-                rows: 1,
-              },
-              {
-                name: "message",
-                type: "textarea",
-                placeholder: "Your Message",
-                rows: 4,
-              },
-            ].map((field) => (
-              <div
-                key={field.name}
-                className={`relative transform transition-all duration-500 ${
-                  focusedField === field.name ? "scale-105" : "scale-100"
-                }`}
-              >
-                {field.type === "textarea" ? (
-                  <textarea
-                    name={field.name}
-                    value={formData[field.name as keyof typeof formData]}
-                    onChange={handleChange}
-                    onFocus={() => setFocusedField(field.name)}
-                    onBlur={() => setFocusedField(null)}
-                    placeholder={field.placeholder}
-                    required
-                    rows={field.rows}
-                    className="w-full px-6 py-4 bg-slate-900/50 border-2 border-purple-500/30 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all duration-300 resize-none backdrop-blur-sm"
-                  />
-                ) : (
-                  <input
-                    type={field.type}
-                    name={field.name}
-                    value={formData[field.name as keyof typeof formData]}
-                    onChange={handleChange}
-                    onFocus={() => setFocusedField(field.name)}
-                    onBlur={() => setFocusedField(null)}
-                    placeholder={field.placeholder}
-                    required
-                    className="w-full px-6 py-4 bg-slate-900/50 border-2 border-purple-500/30 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all duration-300 backdrop-blur-sm"
-                  />
-                )}
-                {focusedField === field.name && (
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-50 animate-pulse" />
-                )}
-              </div>
-            ))}
-
-            <button
-              onClick={handleSubmit}
-              disabled={isSubmitted}
-              className="relative w-full px-8 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-2xl overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              <span className="relative z-10 flex items-center justify-center space-x-3">
-                {isSubmitted ? (
-                  <>
-                    <span>Message Sent!</span>
-                    <span className="text-2xl">✓</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </span>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 bg-white/20 animate-pulse" />
-              </div>
-            </button>
           </div>
         </div>
       </div>
