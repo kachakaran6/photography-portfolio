@@ -63,6 +63,55 @@ const GallerySection = () => {
       title: "Tech World",
       category: "AI",
     },
+    {
+      id: 71,
+      url: "/images/001.jpg",
+      title: "Tech World",
+      category: "AI",
+    },
+    {
+      id: 8,
+      url: "/images/002.jpg",
+      title: "Digital Horizon",
+      category: "AI",
+    },
+    {
+      id: 9,
+      url: "/images/003.jpg",
+      title: "Future Code",
+      category: "AI",
+    },
+    {
+      id: 10,
+      url: "/images/004.jpg",
+      title: "Neural Networks",
+      category: "AI",
+    },
+    {
+      id: 11,
+      url: "/images/005.jpg",
+      title: "Smart Systems",
+      category: "AI",
+    },
+    {
+      id: 12,
+      url: "/images/006.jpg",
+      title: "Cognitive Machines",
+      category: "AI",
+    },
+    {
+      id: 13,
+      url: "/images/007.png",
+      title: "Innovative Minds",
+      category: "AI",
+    },
+    {
+      id: 14,
+      url: "/images/008.jpg",
+      title: "Next Gen Tech",
+      category: "AI",
+    },
+
     // {
     //   id: 8,
     //   url: "/images/",
@@ -163,7 +212,7 @@ const GallerySection = () => {
               <div className="relative aspect-square overflow-hidden rounded-2xl border border-purple-500/20 bg-slate-900">
                 <img
                   src={image.url}
-                  alt={image.title}
+                  // alt={image.title}
                   className={`w-full h-full object-cover transition-all duration-700 ${
                     hoveredId === image.id
                       ? "scale-125 rotate-2"
@@ -190,10 +239,10 @@ const GallerySection = () => {
                       }`}
                     >
                       <Sparkles className="mx-auto mb-3 h-8 w-8 text-purple-400 animate-pulse" />
-                      <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
+                      {/* <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
                       <p className="text-sm text-purple-300 font-semibold tracking-wider">
                         {image.category}
-                      </p>
+                      </p> */}
                       <div className="mt-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">
                         Click to view
                       </div>
