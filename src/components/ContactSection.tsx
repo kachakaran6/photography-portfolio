@@ -85,6 +85,18 @@ const ContactSection = () => {
                   label: "Phone",
                   href: "tel:+919974730820",
                 },
+                {
+                  Icon: Mail,
+                  text: "mail to: abhayladhava5@gmail.com",
+                  label: "Email",
+                  href: "mailto:abhayladhava5@gmail.com",
+                },
+                {
+                  Icon: Phone,
+                  text: "+91 9274240263",
+                  label: "Phone",
+                  href: "tel:+919274240263",
+                },
               ].map(({ Icon, text, label, href }, idx) => (
                 <a
                   key={idx}
